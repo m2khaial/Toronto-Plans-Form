@@ -19,7 +19,7 @@
     <div class="container">
         <h1>Toronto Trip Planning Form</h1>
 
-        <form id="tripForm" action="https://formspree.io/f/mgvwkkgo" method="POST">
+        <form id="tripForm" action="https://formspree.io/f/mgvwkkgo" method="POST" enctype="multipart/form-data">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required><br>
 
@@ -37,14 +37,14 @@
 
             <label for="restaurants">Restaurants you know in Downtown Toronto:</label>
             <input type="text" id="restaurants" name="restaurants"><br>
-
+<div class="checkbox-group"></div>
             <label>Preferred Cuisine (max 2):</label><br>
             <input type="checkbox" id="cuisine1" name="cuisine" value="Italian"> Italian<br>
             <input type="checkbox" id="cuisine2" name="cuisine" value="Chinese"> Afghan<br>
             <input type="checkbox" id="cuisine3" name="cuisine" value="Lazeez" disabled> Lazeez<br>
             <input type="checkbox" id="cuisine4" name="cuisine" value="Fastfood"> Fastfood(Wingstop, pizza, etc)<br>
             <input type="checkbox" id="cuisine5" name="cuisine" value="Sushi"> Sushi<br>
-
+</div>
             <label for="fitCheck">Fit Check (Upload a photo):</label>
             <input type="file" id="fitCheck" name="fitCheck"><br>
 

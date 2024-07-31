@@ -12,6 +12,11 @@ body {
     align-items: center;
     height: 100vh;
 }
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 
 /* Container styling */
 .container {
@@ -43,6 +48,12 @@ h1 {
     color: #4CAF50; /* Fresh green color for a modern look */
     margin-bottom: 20px;
 }
+
+.inline {
+    width: auto;
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+  }
 
 /* Label styling */
 label {
