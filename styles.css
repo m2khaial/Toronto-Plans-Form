@@ -6,12 +6,17 @@ body {
     backdrop-filter: blur(8px); /* Blurs the background image */
     color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    padding-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Container styling */
@@ -25,7 +30,6 @@ body {
     text-align: center;
     margin: 20px auto;
     overflow:auto;
-    position:relative;
 }
 
 /* Heading styling */
@@ -110,4 +114,16 @@ button:hover {
     position: absolute;
     top: -9999px;
     left: -9999px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+        max-width: 100%;
+    }
+
+    input[type="text"], input[type="file"], select, textarea {
+        width: 100%;
+    }
 }
