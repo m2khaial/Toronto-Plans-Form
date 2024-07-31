@@ -12,11 +12,6 @@ body {
     align-items: center;
     height: 100vh;
 }
-.checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
 
 /* Container styling */
 .container {
@@ -30,30 +25,12 @@ body {
     margin: 40px auto 0;
 }
 
-form {
-    width: 60vw;
-    max-width: 500px;
-    min-width: 300px;
-    padding: 2em;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    flex-direction: column;
-    margin: 0 auto;
-  }
-
 /* Heading styling */
 h1 {
     font-size: 2em;
     color: #4CAF50; /* Fresh green color for a modern look */
     margin-bottom: 20px;
 }
-
-.inline {
-    width: auto;
-    margin: 0 0.5em 0 0;
-    vertical-align: middle;
-  }
 
 /* Label styling */
 label {
