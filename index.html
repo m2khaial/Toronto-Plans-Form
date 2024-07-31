@@ -46,7 +46,19 @@
 
             <label for="fitCheck">Fit Check (Upload a photo):</label>
             <input type="file" id="fitCheck" name="fitCheck"><br>
+            <label for="latestLeave">What is the latest you have to leave?</label>
+            <select id="latestLeave" name="latestLeave" required>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="whenever">Whenever</option>
+            </select><br>
 
+            <label for="favoriteThings">What are your favorite things about your 2 hosts?</label>
+            <textarea id="favoriteThings" name="favoriteThings" required></textarea><br>
+
+            <label for="questions">Any questions?</label>
+            <textarea id="questions" name="questions"></textarea><br>
             <label>Do you like the itinerary?</label><br>
             <img src="path_to_itinerary_photo.jpg" alt="Itinerary"><br>
             <input type="radio" id="itineraryYes" name="itinerary" value="yes" checked> Yes<br>
