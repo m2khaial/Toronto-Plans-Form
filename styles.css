@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding-top: 20px;
 }
 
 /* Container styling */
@@ -22,7 +23,9 @@ body {
     max-width: 600px;
     width: 100%;
     text-align: center;
-    margin: 40px auto 0;
+    margin: 20px auto;
+    overflow:auto;
+    position:relative;
 }
 
 /* Heading styling */
