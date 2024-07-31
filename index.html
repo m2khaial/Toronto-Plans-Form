@@ -26,18 +26,14 @@
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" required><br>
 
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender" required>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select><br>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male" required> Male
+            <input type="radio" id="female" name="gender" value="female" required> Female
+            <input type="radio" id="other" name="gender" value="other" required> Other<br>
 
             <label>Have you ever cheated?</label>
-            <select id="cheated" name="cheated" required>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select><br>
+            <input type="radio" id="cheatedYes" name="cheated" value="yes" required> Yes
+            <input type="radio" id="cheatedNo" name="cheated" value="no" required> No<br>
 
             <label for="restaurants">Restaurants you know in Downtown Toronto:</label>
             <input type="text" id="restaurants" name="restaurants"><br>
@@ -51,19 +47,19 @@
 
             <label for="fitCheck">Fit Check (Upload a photo):</label>
             <input type="file" id="fitCheck" name="fitCheck"><br>
-            <label for="latestLeave">What is the latest you have to leave?</label>
-            <select id="latestLeave" name="latestLeave" required>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="whenever">Whenever</option>
-            </select><br>
+
+            <label>What is the latest you have to leave?</label><br>
+            <input type="radio" id="leave8" name="latestLeave" value="8" required> 8
+            <input type="radio" id="leave9" name="latestLeave" value="9" required> 9
+            <input type="radio" id="leave10" name="latestLeave" value="10" required> 10
+            <input type="radio" id="leaveWhenever" name="latestLeave" value="whenever" required> Whenever<br>
 
             <label for="favoriteThings">What are your favorite things about your 2 hosts?</label>
-            <textarea id="favoriteThings" name="favoriteThings" required></textarea><br>
+            <textarea id="favoriteThings" name="favoriteThings" required placeholder="The hosts are funny, pretty, kind, pretty, etc. They smell like CH Good Girl and they have a 2 inch waist. Sometimes we need to tie them town to a pole because we are scared that the wind will whisk them away. They are the funniest people we have ever met and we don't even smile when they are not around..."></textarea><br>
 
             <label for="questions">Any questions?</label>
-            <textarea id="questions" name="questions"></textarea><br>
+            <textarea id="questions" name="questions" placeholder="No this form is perfect and explained everything :)"></textarea><br>
+            
             <label>Do you like the itinerary?</label><br>
             <img src="path_to_itinerary_photo.jpg" alt="Itinerary"><br>
             <input type="radio" id="itineraryYes" name="itinerary" value="yes" checked> Yes<br>
