@@ -1,25 +1,49 @@
-document.getElementById('tripForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    let gender = document.getElementById('gender').value;
-    let cheated = document.getElementById('cheated').value;
-
-    if (gender === 'male' && cheated === 'no') {
-        alert("Ik ur a man and have a tendency to lie but no lying allowed on this form");
-        return;
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to toggle the cheating options based on gender
+    function updateCheatingOptions() {
+        const gender = document.querySelector('input[name="gender"]:checked');
+        const cheatedNo = document.getElementById('cheatedNo');
+        
+        if (gender && gender.value === 'male') {
+            cheatedNo.disabled = true; // Disable 'No' option
+        } else {
+            cheatedNo.disabled = false; // Enable 'No' option
+        }
     }
 
-    let selectedCuisines = document.querySelectorAll('input[name="cuisine"]:checked');
-    if (selectedCuisines.length > 2) {
-        alert("You can only select up to 2 cuisines.");
-        return;
-    }
+    // Add event listeners to gender radio buttons
+    const genderRadios = document.querySelectorAll('input[name="gender"]');
+    genderRadios.forEach(radio => {
+        radio.addEventListener('change', updateCheatingOptions);
+    });
 
-    document.getElementById('tripForm').style.display = 'none';
-    document.getElementById('congratsMessage').classList.remove('hidden');
+    // Initialize the form on page load
+    updateCheatingOptions();
+
+    // Form submission handler
+    document.getElementById('tripForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let gender = document.querySelector('input[name="gender"]:checked').value;
+        let cheated = document.querySelector('input[name="cheated"]:checked').value;
+
+        if (gender === 'male' && cheated === 'no') {
+            alert("Ik ur a man and have a tendency to lie but no lying allowed on this form");
+            return;
+        }
+
+        let selectedCuisines = document.querySelectorAll('input[name="cuisine"]:checked');
+        if (selectedCuisines.length > 2) {
+            alert("You can only select up to 2 cuisines.");
+            return;
+        }
+
+        document.getElementById('tripForm').style.display = 'none';
+        document.getElementById('congratsMessage').classList.remove('hidden');
+    });
+
+    // Reveal reward handler
+    document.getElementById('revealReward').addEventListener('click', function() {
+        document.getElementById('reward').classList.remove('hidden');
+    });
 });
-
-document.getElementById('revealReward').addEventListener('click', function() {
-    document.getElementById('reward').classList.remove('hidden');
-});
-
