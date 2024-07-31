@@ -13,12 +13,6 @@ body {
     height: 100vh;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /* Container styling */
 .container {
     background: rgba(255, 255, 255, 0.85); /* Slightly transparent white background */
@@ -30,6 +24,7 @@ form {
     text-align: center;
     margin: 20px auto;
     overflow:auto;
+    position:relative;
 }
 
 /* Heading styling */
@@ -114,16 +109,4 @@ button:hover {
     position: absolute;
     top: -9999px;
     left: -9999px;
-}
-
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-        margin: 10px;
-        max-width: 100%;
-    }
-
-    input[type="text"], input[type="file"], select, textarea {
-        width: 100%;
-    }
 }
