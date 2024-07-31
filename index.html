@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toronto Trip Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="youtube-audio">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="container">
+        <h1>Toronto Trip Planning Form</h1>
+
+        <form id="tripForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br>
+
+            <label>Have you ever cheated?</label>
+            <select id="cheated" name="cheated" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+
+            <label for="restaurants">Restaurants you know in Downtown Toronto:</label>
+            <input type="text" id="restaurants" name="restaurants"><br>
+
+            <label>Preferred Cuisine (max 2):</label><br>
+            <input type="checkbox" id="cuisine1" name="cuisine" value="Italian"> Italian<br>
+            <input type="checkbox" id="cuisine2" name="cuisine" value="Chinese"> Afghan<br>
+            <input type="checkbox" id="cuisine3" name="cuisine" value="Lazeez" disabled> Lazeez<br>
+            <input type="checkbox" id="cuisine4" name="cuisine" value="Fastfood"> Fastfood(Wingstop, pizza, etc)<br>
+            <input type="checkbox" id="cuisine5" name="cuisine" value="Sushi"> Sushi<br>
+
+            <label for="fitCheck">Fit Check (Upload a photo):</label>
+            <input type="file" id="fitCheck" name="fitCheck"><br>
+
+            <label>Do you like the itinerary?</label><br>
+            <img src="path_to_itinerary_photo.jpg" alt="Itinerary"><br>
+            <input type="radio" id="itineraryYes" name="itinerary" value="yes" checked> Yes<br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="congratsMessage" class="hidden">
+            <h2>Congrats!</h2>
+            <button id="revealReward">Reveal Reward</button>
+            <p id="reward" class="hidden">123 Waterloo St.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
