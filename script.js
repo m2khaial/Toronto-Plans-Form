@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add event listeners to gender radio buttons
-    const genderRadios = document.querySelectorAll('input[name="gender"]');
+    const genderRadios = document.querySelectorAll('input[name="data[gender]"]');
     genderRadios.forEach(radio => {
         radio.addEventListener('change', updateCheatingOptions);
     });
@@ -24,15 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('tripForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        let gender = document.querySelector('input[name="gender"]:checked').value;
-        let cheated = document.querySelector('input[name="cheated"]:checked').value;
+        let gender = document.querySelector('input[name="data[gender]"]:checked').value;
+        let cheated = document.querySelector('input[name="data[cheated]"]:checked').value;
 
         if (gender === 'male' && cheated === 'no') {
             alert("Ik ur a man and have a tendency to lie but no lying allowed on this form");
             return;
         }
 
-        let selectedCuisines = document.querySelectorAll('input[name="cuisine"]:checked');
+        let selectedCuisines = document.querySelectorAll('input[name="data[cuisine]"]:checked');
         if (selectedCuisines.length > 2) {
             alert("You can only select up to 2 cuisines.");
             return;
