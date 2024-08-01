@@ -48,53 +48,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Existing JavaScript code...
+var firstName = document.getElementById('firstName').value;
+var lastName = document.getElementById('lastName').value;
+var gender = document.querySelector('input[name="gender"]:checked').value;
+var cheated = document.querySelector('input[name="cheated"]:checked').value;
+var earliestArrive = document.querySelector('input[name="earliestArrive"]:checked').value;
+var latestLeave = document.querySelector('input[name="latestLeave"]:checked').value;
+var favoriteThings = document.getElementById('favoriteThings').value;
+var questions = document.getElementById('questions').value;
+var fitCheck = document.getElementById('fitCheck').value;
 
-document.getElementById('tripForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    let gender = document.getElementById('gender').value;
-    let cheated = document.getElementById('cheated').value;
-
-    if (gender === 'male' && cheated === 'no') {
-        alert("Ik ur a man and have a tendency to lie but no lying allowed on this form");
-        return;
-    }
-
-    let selectedCuisines = document.querySelectorAll('input[name="cuisine"]:checked');
-    if (selectedCuisines.length > 2) {
-        alert("You can only select up to 2 cuisines.");
-        return;
-    }
-
-    var form = document.getElementById("tripForm");
-    var status = document.getElementById("form-status");
-    var data = new FormData(form);
-
-    fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-        if (response.ok) {
-            status.innerHTML = "Thanks for your submission!";
-            form.reset();
-        } else {
-            response.json().then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                } else {
-                    status.innerHTML = "Oops! There was a problem submitting your form.";
-                }
-            });
-        }
-    }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form.";
-    });
-});
-
-document.getElementById('revealReward').addEventListener('click', function() {
-    document.getElementById('reward').classList.remove('hidden');
-});
+var messageBody = "Name: " + firstName + " " + lastName +
+    "<br/> Gender: " + gender +
+    "<br/> Have you ever cheated?: " + cheated +
+    "<br/> Earliest you can arrive: " + earliestArrive +
+    "<br/> Latest you have to leave: " + latestLeave +
+    "<br/> Favorite things about the hosts: " + favoriteThings +
+    "<br/> Any questions: " + questions +
+    "<br/> Fit check file: " + fitCheck;
+    
+function sendEmail(){
+    Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "mhkhaial15@gmail.com",
+    Password : "0FAFF2D5CFF6CC7BC3942FB5FCCC2F04EF43",
+    To : 'mhkhaial15@gmail.com',
+    From : document.getElementById("firstName").value,
+    Subject : "This is the subject",
+    Body : messageBody,
+}).then(
+message => alert("Form submitted")
+);
+}
