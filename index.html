@@ -10,7 +10,9 @@
     <div class="container">
         <h1>Toronto Trip Planning Form</h1>
 
-        <form id="tripForm" onsubmit="sendEmail()"></form>
+        <form id="tripForm" onsubmit="sendEmail(event)">
+            <!-- Form fields -->
+            <!-- Ensure all form fields are inside the form tag -->
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required><br>
 
@@ -31,12 +33,14 @@
 
             <label for="restaurants">Restaurants you know in Downtown Toronto:</label>
             <input type="text" id="restaurants" name="restaurants"><br>
+
             <label>Preferred Cuisine (max 2):</label><br>
             <input type="checkbox" id="cuisine1" name="cuisine" value="Italian"> Italian<br>
-            <input type="checkbox" id="cuisine2" name="cuisine" value="Chinese"> Afghan<br>
+            <input type="checkbox" id="cuisine2" name="cuisine" value="Afghan"> Afghan<br>
             <input type="checkbox" id="cuisine3" name="cuisine" value="Lazeez" disabled> Lazeez<br>
-            <input type="checkbox" id="cuisine4" name="cuisine" value="Fastfood"> Fastfood(Wingstop, pizza, etc)<br>
+            <input type="checkbox" id="cuisine4" name="cuisine" value="Fastfood"> Fastfood (Wingstop, pizza, etc)<br>
             <input type="checkbox" id="cuisine5" name="cuisine" value="Sushi"> Sushi<br>
+
             <label for="fitCheck">Fit Check (Upload a photo):</label>
             <input type="file" id="fitCheck" name="fitCheck"><br>
 
@@ -54,11 +58,11 @@
             <input type="radio" id="leaveWhenever" name="latestLeave" value="whenever" required> Whenever<br>
 
             <label for="favoriteThings">What are your favorite things about your 2 hosts?</label>
-            <textarea id="favoriteThings" name="favoriteThings" required placeholder="The hosts are funny, pretty, kind, pretty, etc. They smell like CH Good Girl and they have a 2 inch waist. Sometimes we need to tie them town to a pole because we are scared that the wind will whisk them away. They are the funniest people we have ever met and we don't even smile when they are not around..."></textarea><br>
+            <textarea id="favoriteThings" name="favoriteThings" required></textarea><br>
 
             <label for="questions">Any questions?</label>
-            <textarea id="questions" name="questions" placeholder="No this form is perfect and explained everything :)"></textarea><br>
-            
+            <textarea id="questions" name="questions" placeholder="No, this form is perfect and explained everything :)"></textarea><br>
+
             <label>Do you like the itinerary?</label><br>
             <img src="path_to_itinerary_photo.jpg" alt="Itinerary"><br>
             <input type="radio" id="itineraryYes" name="itinerary" value="yes" checked> Yes<br>
@@ -72,9 +76,8 @@
             <p id="reward" class="hidden">123 Waterloo St.</p>
         </div>
     </div>
+
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="script.js"></script>
-    
 </body>
 </html>
-

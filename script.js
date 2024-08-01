@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Hide form and show congrats message
         document.getElementById('tripForm').style.display = 'none';
         document.getElementById('congratsMessage').classList.remove('hidden');
     });
@@ -48,37 +49,54 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-var firstName = document.getElementById('firstName').value;
-var lastName = document.getElementById('lastName').value;
-var gender = document.querySelector('input[name="gender"]:checked').value;
-var cheated = document.querySelector('input[name="cheated"]:checked').value;
-var earliestArrive = document.querySelector('input[name="earliestArrive"]:checked').value;
-var latestLeave = document.querySelector('input[name="latestLeave"]:checked').value;
-var favoriteThings = document.getElementById('favoriteThings').value;
-var questions = document.getElementById('questions').value;
-var fitCheck = document.getElementById('fitCheck').value;
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to send email
+    function sendEmail(event) {
+        event.preventDefault(); // Prevent form submission
 
-var messageBody = "Name: " + firstName + " " + lastName +
-    "<br/> Gender: " + gender +
-    "<br/> Have you ever cheated?: " + cheated +
-    "<br/> Earliest you can arrive: " + earliestArrive +
-    "<br/> Latest you have to leave: " + latestLeave +
-    "<br/> Favorite things about the hosts: " + favoriteThings +
-    "<br/> Any questions: " + questions +
-    "<br/> Fit check file: " + fitCheck;
+        let firstName = document.getElementById('firstName').value;
+        let lastName = document.getElementById('lastName').value;
+        let email = document.getElementById('email').value;
+        let gender = document.querySelector('input[name="gender"]:checked').value;
+        let cheated = document.querySelector('input[name="cheated"]:checked').value;
+        let earliestArrive = document.querySelector('input[name="earliestArrive"]:checked').value;
+        let latestLeave = document.querySelector('input[name="latestLeave"]:checked').value;
+        let favoriteThings = document.getElementById('favoriteThings').value;
+        let questions = document.getElementById('questions').value;
+        let fitCheck = document.getElementById('fitCheck').files[0] ? document.getElementById('fitCheck').files[0].name : 'None';
 
-function sendEmail(){
-    Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "mhkhaial15@gmail.com",
-    Password : "0FAFF2D5CFF6CC7BC3942FB5FCCC2F04EF43",
-    To : 'm2khaial@uwaterloo.ca',
-    From : document.getElementById("email").value,
-    Subject : "This is the subject",
-    Body : messageBody,
-}).then(
-message => alert("Form submitted")
-).catch(
-    error => console.error("Error sending email:", error)
-);
-}
+        let messageBody = `Name: ${firstName} ${lastName}
+            <br/> Gender: ${gender}
+            <br/> Have you ever cheated?: ${cheated}
+            <br/> Earliest you can arrive: ${earliestArrive}
+            <br/> Latest you have to leave: ${latestLeave}
+            <br/> Favorite things about the hosts: ${favoriteThings}
+            <br/> Any questions: ${questions}
+            <br/> Fit check file: ${fitCheck}`;
+
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "mhkhaial15@gmail.com",
+            Password : "0FAFF2D5CFF6CC7BC3942FB5FCCC2F04EF43",
+            To : 'm2khaial@uwaterloo.ca',
+            From : email,
+            Subject : "Toronto Trip Form Submission",
+            Body : messageBody,
+        }).then(
+            message => {
+                alert("Form submitted successfully!");
+                document.getElementById('tripForm').style.display = 'none';
+                document.getElementById('congratsMessage').classList.remove('hidden');
+            }
+        ).catch(
+            error => console.error("Error sending email:", error)
+        );
+    }
+
+    document.getElementById('tripForm').addEventListener('submit', sendEmail);
+
+    // Reveal reward handler
+    document.getElementById('revealReward').addEventListener('click', function() {
+        document.getElementById('reward').classList.remove('hidden');
+    });
+});
