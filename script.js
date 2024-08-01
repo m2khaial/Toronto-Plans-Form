@@ -43,78 +43,22 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('congratsMessage').classList.remove('hidden');
     });
 
-    // Reveal reward handler
-    document.getElementById('revealReward').addEventListener('click', function() {
-        document.getElementById('reward').classList.remove('hidden');
+    fetch(document.getElementById('tripForm').action, {
+        method: 'POST',
+        body: new FormData(document.getElementById('tripForm')),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Form submitted successfully!");
+        document.getElementById('tripForm').style.display = 'none';
+        document.getElementById('congratsMessage').classList.remove('hidden');
+    })
+    .catch(error => {
+        console.error("Error submitting form:", error);
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to send email
-    function sendEmail(event) {
-        event.preventDefault(); // Prevent form submission
-
-        let firstName = document.getElementById('firstName').value;
-        let lastName = document.getElementById('lastName').value;
-        let email = document.getElementById('email').value;
-        let gender = document.querySelector('input[name="gender"]:checked').value;
-        let cheated = document.querySelector('input[name="cheated"]:checked').value;
-        let earliestArrive = document.querySelector('input[name="earliestArrive"]:checked').value;
-        let latestLeave = document.querySelector('input[name="latestLeave"]:checked').value;
-        let favoriteThings = document.getElementById('favoriteThings').value;
-        let questions = document.getElementById('questions').value;
-        let fitCheck = document.getElementById('fitCheck').files[0] ? document.getElementById('fitCheck').files[0].name : 'None';
-
-        let messageBody = `Name: ${firstName} ${lastName}
-            <br/> Gender: ${gender}
-            <br/> Have you ever cheated?: ${cheated}
-            <br/> Earliest you can arrive: ${earliestArrive}
-            <br/> Latest you have to leave: ${latestLeave}
-            <br/> Favorite things about the hosts: ${favoriteThings}
-            <br/> Any questions: ${questions}
-            <br/> Fit check file: ${fitCheck}`;
-
-        Email.send({
-            Host : "smtp.elasticemail.com",
-            Username : "mhkhaial15@gmail.com",
-            Password : "0FAFF2D5CFF6CC7BC3942FB5FCCC2F04EF43",
-            To : 'm2khaial@uwaterloo.ca',
-            From : email,
-            Subject : "Toronto Trip Form Submission",
-            Body : messageBody,
-        }).then(
-            message => {
-                alert("Form submitted successfully!");
-                document.getElementById('tripForm').style.display = 'none';
-                document.getElementById('congratsMessage').classList.remove('hidden');
-            }
-        ).catch(
-            error => console.error("Error sending email:", error)
-        );
-    }
-
-    document.getElementById('tripForm').addEventListener('submit', sendEmail);
-
-    // Reveal reward handler
-    document.getElementById('revealReward').addEventListener('click', function() {
-        document.getElementById('reward').classList.remove('hidden');
-    });
+// Reveal reward handler
+document.getElementById('revealReward').addEventListener('click', function() {
+    document.getElementById('reward').classList.remove('hidden');
 });
-
-var form = document.getElementById('tripForm');
-        form.addEventListener("submit", e => {
-          e.preventDefault();
-          fetch(form.action, {
-              method : "POST",
-              body: new FormData(document.getElementById("tripForm")),
-          }).then(
-              response => response.json()
-          ).then((html) => {
-            message => {
-                alert("Form submitted successfully!");
-                document.getElementById('tripForm').style.display = 'none';
-                document.getElementById('congratsMessage').classList.remove('hidden');
-            }
-
-          });
-        });
