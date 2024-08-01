@@ -100,3 +100,21 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('reward').classList.remove('hidden');
     });
 });
+
+var form = document.getElementById('tripForm');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("tripForm")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            message => {
+                alert("Form submitted successfully!");
+                document.getElementById('tripForm').style.display = 'none';
+                document.getElementById('congratsMessage').classList.remove('hidden');
+            }
+
+          });
+        });
