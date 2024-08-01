@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Function to toggle the cheating options based on gender
     function updateCheatingOptions() {
-        const gender = document.querySelector('input[name="gender"]:checked');
+        const gender = document.querySelector('input[name="data[gender]"]:checked');
         const cheatedNo = document.getElementById('cheatedNo');
         
         if (gender && gender.value === 'male') {
