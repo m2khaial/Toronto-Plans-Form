@@ -66,17 +66,19 @@ var messageBody = "Name: " + firstName + " " + lastName +
     "<br/> Favorite things about the hosts: " + favoriteThings +
     "<br/> Any questions: " + questions +
     "<br/> Fit check file: " + fitCheck;
-    
+
 function sendEmail(){
     Email.send({
     Host : "smtp.elasticemail.com",
     Username : "mhkhaial15@gmail.com",
     Password : "0FAFF2D5CFF6CC7BC3942FB5FCCC2F04EF43",
-    To : 'mhkhaial15@gmail.com',
+    To : 'm2khaial@uwaterloo.ca',
     From : document.getElementById("firstName").value,
     Subject : "This is the subject",
     Body : messageBody,
 }).then(
 message => alert("Form submitted")
+).catch(
+    error => console.error("Error sending email:", error)
 );
 }
