@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateCheatingOptions() {
         const gender = document.querySelector('input[name="data[gender]"]:checked');
         const cheatedNo = document.getElementById('cheatedNo');
-        
+
         if (gender && gender.value === 'male') {
             cheatedNo.disabled = true; // Disable 'No' option
+            cheatedNo.checked = false; // Uncheck 'No' if it was checked
         } else {
             cheatedNo.disabled = false; // Enable 'No' option
         }
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        let selectedCuisines = document.querySelectorAll('input[name="data[cuisine]"]:checked');
+        let selectedCuisines = document.querySelectorAll('input[name="data[cuisine][]"]:checked');
         if (selectedCuisines.length > 2) {
             alert("You can only select up to 2 cuisines.");
             return;
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('reward').classList.remove('hidden');
     });
 });
+
 
 var form = document.getElementById('tripForm');
 form.addEventListener("submit", e => {
