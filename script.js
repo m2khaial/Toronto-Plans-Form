@@ -73,7 +73,7 @@ function sendEmail(){
     Username : "mhkhaial15@gmail.com",
     Password : "0FAFF2D5CFF6CC7BC3942FB5FCCC2F04EF43",
     To : 'm2khaial@uwaterloo.ca',
-    From : document.getElementById("firstName").value,
+    From : document.getElementById("email").value,
     Subject : "This is the subject",
     Body : messageBody,
 }).then(
