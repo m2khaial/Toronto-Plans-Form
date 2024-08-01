@@ -24,41 +24,42 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('tripForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        let gender = document.querySelector('input[name="gender"]:checked').value;
-        let cheated = document.querySelector('input[name="cheated"]:checked').value;
+        // Validate required fields
+        let firstName = document.getElementById('firstName').value;
+        let lastName = document.getElementById('lastName').value;
+        let gender = document.querySelector('input[name="gender"]:checked');
+        let cheated = document.querySelector('input[name="cheated"]:checked');
+        let selectedCuisines = document.querySelectorAll('input[name="cuisine"]:checked');
 
-        if (gender === 'male' && cheated === 'no') {
+        if (!firstName || !lastName || !gender || !cheated) {
+            alert("Please fill out all required fields.");
+            return;
+        }
+
+        if (gender.value === 'male' && cheated.value === 'no') {
             alert("Ik ur a man and have a tendency to lie but no lying allowed on this form");
             return;
         }
 
-        let selectedCuisines = document.querySelectorAll('input[name="cuisine"]:checked');
         if (selectedCuisines.length > 2) {
             alert("You can only select up to 2 cuisines.");
             return;
         }
 
-        // Hide form and show congrats message
-        document.getElementById('tripForm').style.display = 'none';
-        document.getElementById('congratsMessage').classList.remove('hidden');
+var form = document.getElementById('tripForm');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("tripForm")),
+          }).then(
+              response => response.json()
+          ).then(data => {
+            alert("Form submitted successfully!");
+            document.getElementById('tripForm').style.display = 'none';
+            document.getElementById('congratsMessage').classList.remove('hidden');
+        })
+        .catch(error => {
+            console.error("Error submitting form:", error);
+        });
     });
-
-    fetch(document.getElementById('tripForm').action, {
-        method: 'POST',
-        body: new FormData(document.getElementById('tripForm')),
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert("Form submitted successfully!");
-        document.getElementById('tripForm').style.display = 'none';
-        document.getElementById('congratsMessage').classList.remove('hidden');
-    })
-    .catch(error => {
-        console.error("Error submitting form:", error);
-    });
-});
-
-// Reveal reward handler
-document.getElementById('revealReward').addEventListener('click', function() {
-    document.getElementById('reward').classList.remove('hidden');
-});
