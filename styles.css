@@ -104,12 +104,9 @@ button:hover {
     color: #FF5722; /* Bright orange color for emphasis */
 }
 
-/* YouTube audio styling */
-.youtube-audio iframe {
-    width: 0;
-    height: 0;
-    border: none;
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+#rewardImage {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
